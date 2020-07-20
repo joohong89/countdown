@@ -3,11 +3,10 @@ $height: 10em;
 $half-height: $height *0.5;
 $font-size: $height;
 $font-color: #fff;
-$bg-color: #3e3e3e;
+$bg-color: #3f3f3f;
 
 .countdown-wrapper{
   display: flex;
-  height: $height;
 }
 .group-wrapper{
   display: flex;
@@ -22,7 +21,7 @@ $bg-color: #3e3e3e;
 .separator{
   display: flex;
   margin: 5px;
-  font-size: $half-height;
+  font-size: $height;
   align-items: center;
   justify-content: center;
 
@@ -49,6 +48,7 @@ $bg-color: #3e3e3e;
     position: absolute;
     color: $font-color;
     width: 100%;
+    border-radius: 10px;
   }
   .front{
     z-index: 2;
@@ -65,6 +65,8 @@ $bg-color: #3e3e3e;
       line-height: 0;
       background: $bg-color;
       border-top: solid 2px white;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
 
 
@@ -80,10 +82,19 @@ $bg-color: #3e3e3e;
         transform-origin: top;
         transition-delay: 0.25s;
         transform: rotateX(0deg);
+        //box-shadow: 0 0 1em 1em black inset;
       }
     }
+
     .back {
       z-index: 3;
+
+
+      &.active{
+          //background: black;
+        transition: box-shadow .65s linear;
+        box-shadow: 0px $height 50px 50px black inset
+      }
     }
   }
   .top {
@@ -104,7 +115,7 @@ $bg-color: #3e3e3e;
       transition: transform 0.4s;
       transform-style: preserve-3d;
       transform: rotateX(-90deg);
-      box-shadow: 0 0 20px black inset;
+      box-shadow: 0 0 1em 1em black inset;
     }
   }
 }

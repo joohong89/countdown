@@ -1,6 +1,5 @@
 .countdown-wrapper {
-  display: flex;
-  height: 10em; }
+  display: flex; }
 
 .group-wrapper {
   display: flex;
@@ -15,7 +14,7 @@
 .separator {
   display: flex;
   margin: 5px;
-  font-size: 5em;
+  font-size: 10em;
   align-items: center;
   justify-content: center; }
 
@@ -37,7 +36,8 @@
     font-size: 10em;
     position: absolute;
     color: #fff;
-    width: 100%; }
+    width: 100%;
+    border-radius: 10px; }
   .digit-container .front {
     z-index: 2; }
   .digit-container .back {
@@ -46,8 +46,10 @@
     bottom: 0;
     height: 50%;
     line-height: 0;
-    background: #3e3e3e;
-    border-top: solid 2px white; }
+    background: #3f3f3f;
+    border-top: solid 2px white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
   .digit-container .bottom .front {
     z-index: 4;
     transform: rotateX(90deg);
@@ -59,12 +61,15 @@
       transform: rotateX(0deg); }
   .digit-container .bottom .back {
     z-index: 3; }
+    .digit-container .bottom .back.active {
+      transition: box-shadow .65s linear;
+      box-shadow: 0px 10em 50px 50px black inset; }
   .digit-container .top .front, .digit-container .top .back {
     top: 0;
     vertical-align: top;
     height: 100%;
     line-height: 100%;
-    background: #3e3e3e;
+    background: #3f3f3f;
     -webkit-perspective: 10em;
     -moz-perspective: 10em;
     -o-perspective: 10em;
@@ -73,4 +78,4 @@
     transition: transform 0.4s;
     transform-style: preserve-3d;
     transform: rotateX(-90deg);
-    box-shadow: 0 0 20px black inset; }
+    box-shadow: 0 0 1em 1em black inset; }

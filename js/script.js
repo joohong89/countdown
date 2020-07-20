@@ -1,7 +1,7 @@
 $(document).ready(()=>{
 
     // let userDate = moment().add(10, 'seconds').add(0, 'minutes').add(50, 'hours');
-    let userDate = moment().add(10, 'seconds');
+    let userDate = moment().add(100, 'seconds');
 
     // TODO: User give input
 
@@ -99,6 +99,7 @@ $(document).ready(()=>{
     function toggleChange($element, newValue, oldValue){
 
         $element.find('.front').toggleClass('active');
+        $element.find('.bottom .back').toggleClass('active');
 
         $element.find('.top .front').html(oldValue);
         $element.find('.top .back').html(newValue);
@@ -108,6 +109,7 @@ $(document).ready(()=>{
 
         setTimeout(()=>{
             $element.find('.front').toggleClass('active');
+            $element.find('.bottom .back').toggleClass('active');
         }, 100);
     }
 
@@ -131,7 +133,7 @@ $(document).ready(()=>{
         createGroup(parentId, 'group-wrapper','seconds-wrapper',secondsObjs, 'SECONDS');
 
         $('.front').addClass('active');
-
+        $('.bottom .back').addClass('active');
 
         let updateClockInterval = setInterval(() => {
             //get difference again
