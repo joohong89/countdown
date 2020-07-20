@@ -3,7 +3,14 @@
   height: 10em; }
 
 .group-wrapper {
-  display: flex; }
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+
+.description {
+  flex: 0 0 100%;
+  text-align: center;
+  font-weight: 700; }
 
 .separator {
   display: flex;
@@ -15,6 +22,7 @@
 .digit-container {
   position: relative;
   width: 7em;
+  height: 10em;
   margin: 5px; }
   .digit-container .top, .digit-container .bottom {
     display: flex;
@@ -52,7 +60,7 @@
   .digit-container .bottom .back {
     z-index: 3; }
   .digit-container .top .front, .digit-container .top .back {
-    top: 0%;
+    top: 0;
     vertical-align: top;
     height: 100%;
     line-height: 100%;

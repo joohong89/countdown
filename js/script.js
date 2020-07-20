@@ -27,26 +27,11 @@ $(document).ready(()=>{
     };
 
 
-    function createGroup(parentDivName, className, id, child){
+    function createGroup(parentDivName, className, id, child, description){
         let $group = $("<div/>", {
-
-            // PROPERTIES HERE
             "id": id,
             "class": className,
-            // css: {
-            //     color: "red",
-            //     fontSize: "3em",
-            //     cursor: "pointer"
-            // },
-            // on: {
-            //     mouseenter: function() {
-            //         console.log("PLEASE... "+ $(this).text());
-            //     },
-            //     click: function() {
-            //         console.log("Hy! My ID is: "+ this.id);
-            //     }
-            // },
-            // append: "<i>!!</i>",
+            append: `<div class="description">${description}</div>`,
             appendTo: '#' + parentDivName
 
         });
@@ -62,7 +47,7 @@ $(document).ready(()=>{
         //create container
         let $digitContainer = $("<div/>", {
 
-            // PROPERTIES HERE
+
             "id": childObj.id,
             "class": "digit-container",      // ('class' is still better in quotes)
             // css: {
@@ -137,13 +122,13 @@ $(document).ready(()=>{
             secondsObjs = convertToDisplayObject(results[2], "seconds-digit-");
 
 
-        createGroup(parentId, 'group-wrapper','hours-wrapper',hourObjs);
+        createGroup(parentId, 'group-wrapper','hours-wrapper',hourObjs, 'HOURS');
 
         createSeparator(parentId, 'hours-minutes-separator');
-        createGroup(parentId, 'group-wrapper','minutes-wrapper',minuteObjs);
+        createGroup(parentId, 'group-wrapper','minutes-wrapper',minuteObjs, 'MINUTES');
 
         createSeparator(parentId, 'minute-second-separator');
-        createGroup(parentId, 'group-wrapper','seconds-wrapper',secondsObjs);
+        createGroup(parentId, 'group-wrapper','seconds-wrapper',secondsObjs, 'SECONDS');
 
         $('.front').addClass('active');
 

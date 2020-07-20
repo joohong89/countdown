@@ -5,16 +5,20 @@ $font-size: $height;
 $font-color: #fff;
 $bg-color: #3e3e3e;
 
-
 .countdown-wrapper{
   display: flex;
   height: $height;
 }
-
 .group-wrapper{
   display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-
+.description {
+  flex: 0 0 100%;
+  text-align: center;
+  font-weight: 700;
+}
 .separator{
   display: flex;
   margin: 5px;
@@ -27,7 +31,7 @@ $bg-color: #3e3e3e;
 .digit-container{
   position: relative;
   width: $width;
-
+  height: $height;
   margin: 5px;
 
   .top, .bottom {
@@ -96,7 +100,6 @@ $bg-color: #3e3e3e;
       perspective: $height;
 
     }
-
     .front.active {
       transition: transform 0.4s;
       transform-style: preserve-3d;
@@ -104,6 +107,4 @@ $bg-color: #3e3e3e;
       box-shadow: 0 0 20px black inset;
     }
   }
-
-
 }
