@@ -1,0 +1,15 @@
+{
+  "name": "countdown-timer",
+  "version": "1.0.0",
+  "description": "countdown timer based on jquery",
+  "main": "index,js",
+  "scripts": {
+    "compile:sass": "node-sass scss/style.scss css/style.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "moment": "^2.27.0"
+  }
+}

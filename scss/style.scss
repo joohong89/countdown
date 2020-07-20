@@ -1,0 +1,109 @@
+$width: 7em;
+$height: 10em;
+$half-height: $height *0.5;
+$font-size: $height;
+$font-color: #fff;
+$bg-color: #3e3e3e;
+
+
+.countdown-wrapper{
+  display: flex;
+  height: $height;
+}
+
+.group-wrapper{
+  display: flex;
+}
+
+.separator{
+  display: flex;
+  margin: 5px;
+  font-size: $half-height;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.digit-container{
+  position: relative;
+  width: $width;
+
+  margin: 5px;
+
+  .top, .bottom {
+    display: flex;
+    justify-content: center;
+    flex-grow:1;
+  }
+  .front, .back{
+    display: flex;
+    flex-grow:1;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    font-size: $font-size;
+    position: absolute;
+    color: $font-color;
+    width: 100%;
+  }
+  .front{
+    z-index: 2;
+  }
+
+  .back{
+    z-index: 1;
+  }
+
+  .bottom {
+    .front, .back{
+      bottom: 0;
+      height: 50%;
+      line-height: 0;
+      background: $bg-color;
+      border-top: solid 2px white;
+    }
+
+
+    .front {
+      z-index: 4;
+      transform: rotateX(90deg);
+      transform-origin: top;
+
+
+
+      &.active{
+        transition: transform 0.4s;
+        transform-origin: top;
+        transition-delay: 0.25s;
+        transform: rotateX(0deg);
+      }
+    }
+    .back {
+      z-index: 3;
+    }
+  }
+  .top {
+
+    .front, .back{
+      top: 0;
+      vertical-align: top;
+      height: 100%;
+      line-height: 100%;
+      background: $bg-color;
+      -webkit-perspective: $height;
+      -moz-perspective: $height;
+      -o-perspective: $height;
+      perspective: $height;
+
+    }
+
+    .front.active {
+      transition: transform 0.4s;
+      transform-style: preserve-3d;
+      transform: rotateX(-90deg);
+      box-shadow: 0 0 20px black inset;
+    }
+  }
+
+
+}
