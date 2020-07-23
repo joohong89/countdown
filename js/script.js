@@ -1,7 +1,7 @@
 $(document).ready(()=>{
 
-    // let userDate = moment().add(10, 'seconds').add(0, 'minutes').add(50, 'hours');
-    let userDate = moment().add(100, 'seconds');
+    let userDate = moment().add(10, 'seconds').add(0, 'minutes').add(100, 'hours');
+    // let userDate = moment().add(100, 'seconds');
 
     // TODO: User give input
 
@@ -20,6 +20,8 @@ $(document).ready(()=>{
 });
 
 (function ( $ ) {
+
+    let initHoursPlaces = 0;
 
     $.fn.countdown = function(options) {
 
@@ -123,6 +125,7 @@ $(document).ready(()=>{
             minuteObjs = convertToDisplayObject(results[1], "minutes-digit-"),
             secondsObjs = convertToDisplayObject(results[2], "seconds-digit-");
 
+        initHoursPlaces = hourObjs.length;
 
         createGroup(parentId, 'group-wrapper','hours-wrapper',hourObjs, 'HOURS');
 
@@ -137,7 +140,7 @@ $(document).ready(()=>{
 
         let updateClockInterval = setInterval(() => {
             //get difference again
-            console.log(userDate.diff(moment()));
+            // console.log(userDate.diff(moment()));
             if(userDate.diff(moment()) < 1000 ){
                 clearInterval(updateClockInterval);
             }
@@ -160,12 +163,19 @@ $(document).ready(()=>{
 
         let results = [];
         let index = 0;
+        let array= [];
 
-        let array = text.split("");
-
-        if(array.length < 2){
-            array.splice(0,0, "0")
+        if(idPrefix == "hours-digit-"){
+            array= text.padStart(initHoursPlaces, '0').split("");
+        }else{
+            array= text.split("");
+            if(array.length < 2){
+                array.splice(0,0, "0")
+            }
         }
+
+
+
 
         array.forEach((item)=>{
             results.push({"value": item, "id": idPrefix + index++});
